@@ -1,5 +1,10 @@
 ---
 
+
+docker__compose: []
+docker__default_compose: []
+docker__dependent_compose: []
+
 docker__dependencies_apt: True
 # apt-key adv --list-public-keys --with-fingerprint --with-colons
 docker__repositories_key:

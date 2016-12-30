@@ -1,0 +1,16 @@
+---
+
+
+- name: Docker compose install project
+  docker_service:
+    project_name: "{{ item.name }}"
+    state: "{{ item.state | default(omit) }}"
+    definition:
+      version: "{{ item.version | default('2') }}"
+      services: "{{ item.services }}"
+  with_flattened:
+    - '{{ docker__compose }}'
+    - '{{ docker__default_compose }}'
+    - '{{ docker__dependent_compose }}'
+
+## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
