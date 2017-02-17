@@ -1,6 +1,6 @@
 ---
 
-- name: install required packages
+- name: install required packages apt
   apt:
     name: '{{ item }}'
     state: 'present'
@@ -8,6 +8,16 @@
   with_flattened:
     - 'docker-engine'
     - 'python-setuptools'
+  when: ansible_os_family == 'Debian'
+
+- name: install required packages yum
+  yum:
+    name: '{{ item }}'
+    state: 'present'
+  with_flattened:
+    - 'docker-engine'
+    - 'python-setuptools'
+  when: ansible_os_family == 'RedHat'
 
 - name: update pip
   easy_install:

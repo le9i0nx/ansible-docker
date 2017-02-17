@@ -2,7 +2,7 @@
 
 dependencies:
 
-    - role: debops.apt
+    - role: apt
       tags:
         - 'depend::apt'
         - 'depend::apt:docker'
@@ -17,7 +17,7 @@ dependencies:
       when: docker__dependencies_apt and
               ansible_os_family == 'Debian'
 
-    - role: le9i0nx.yum
+    - role: yum
       tags:
         - 'depend::yum'
         - 'depend::yum:docker'
