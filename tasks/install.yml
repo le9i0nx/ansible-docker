@@ -8,6 +8,8 @@
   with_flattened:
     - 'docker-engine'
     - 'python-setuptools'
+    - 'aufs-tools'
+    - 'aufs-dkms'
   when: ansible_os_family == 'Debian'
 
 - name: install required packages yum
