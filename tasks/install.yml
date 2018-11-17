@@ -6,24 +6,9 @@
     state: 'present'
     install_recommends: False
   with_flattened:
-    - 'docker-engine'
-    - 'python-setuptools'
-    - 'aufs-tools'
-    - 'aufs-dkms'
+    - 'docker-ce'
+    - 'docker-compose'
   when: ansible_os_family == 'Debian'
-
-- name: install required packages yum
-  yum:
-    name: '{{ item }}'
-    state: 'present'
-  with_flattened:
-    - 'docker-engine'
-    - 'python-setuptools'
-  when: ansible_os_family == 'RedHat'
-
-- name: update pip
-  easy_install:
-    name: pip
 
 - name: install docker-compose
   pip:
